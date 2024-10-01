@@ -15,12 +15,11 @@
         }
     }
 
-    internal class CreateProductCommandHandler(IDocumentSession session, ILogger<CreateProductCommandHandler> logger) 
+    internal class CreateProductCommandHandler(IDocumentSession session) 
         : ICommandHandler<CreateProductCommand, CreateProductResult>
     {
         public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
         {
-            logger.LogInformation("CreateProductCommandHandler.Handle called with {@Command}", command);
 
             //Create Product entity from command object
             var product = new Product
